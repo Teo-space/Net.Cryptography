@@ -50,13 +50,8 @@ namespace Tests
 		public void AesTest()
 		{
 			var key = MD5.Compute(StringForTests);
-			print($"key: {key}");
-
-
 			var EncToBase64 = Aes.EncryptFromStringToBase64(StringForTests, key);
-			print($"EncryptFromStringToBase64: {EncToBase64}");
 			var DecFromBase64 = Aes.DecryptFromBase64ToString(EncToBase64, key);
-			print($"DecryptFromBase64ToString: {DecFromBase64}");
 
 			Assert.AreEqual(DecFromBase64, StringForTests);
 		}
